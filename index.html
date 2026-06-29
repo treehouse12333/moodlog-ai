@@ -14,6 +14,12 @@
           <h1>MoodLog AI</h1>
           <p class="intro-copy">감정을 기록하고, 생각을 정리하고, 내일의 작은 행동까지 연결합니다.</p>
         </div>
+        <div class="mood-strip" aria-hidden="true">
+          <span>🙂</span>
+          <span>😌</span>
+          <span>😵‍💫</span>
+          <span>💭</span>
+        </div>
         <div class="agent-state" aria-live="polite">
           <span class="state-dot"></span>
           <span id="agentStatus">오늘의 감정을 기다리는 중</span>
@@ -23,7 +29,7 @@
       <section class="workspace">
         <form class="panel input-panel" id="diaryForm">
           <div class="panel-head">
-            <h2>오늘 기록</h2>
+            <h2><span class="section-icon">✍️</span>오늘 기록</h2>
             <button type="button" class="ghost-button" id="sampleButton">예시</button>
           </div>
 
@@ -41,25 +47,25 @@
             <label class="field">
               <span>가장 가까운 감정</span>
               <select id="moodInput">
-                <option value="anxious">불안</option>
-                <option value="sad">속상함</option>
-                <option value="angry">짜증</option>
-                <option value="tired">피곤함</option>
-                <option value="proud">뿌듯함</option>
-                <option value="calm">차분함</option>
-                <option value="confused">혼란스러움</option>
+                <option value="anxious">😟 불안</option>
+                <option value="sad">😢 속상함</option>
+                <option value="angry">😤 짜증</option>
+                <option value="tired">😴 피곤함</option>
+                <option value="proud">😊 뿌듯함</option>
+                <option value="calm">😌 차분함</option>
+                <option value="confused">😵‍💫 혼란스러움</option>
               </select>
             </label>
 
             <label class="field">
               <span>지금 필요한 것</span>
               <select id="needInput">
-                <option value="rest">휴식</option>
-                <option value="clarity">정리</option>
-                <option value="support">도움</option>
-                <option value="confidence">자신감</option>
-                <option value="boundary">거리두기</option>
-                <option value="action">행동</option>
+                <option value="rest">🛌 휴식</option>
+                <option value="clarity">🧭 정리</option>
+                <option value="support">🤝 도움</option>
+                <option value="confidence">🌱 자신감</option>
+                <option value="boundary">🛡️ 거리두기</option>
+                <option value="action">🚶 행동</option>
               </select>
             </label>
           </div>
@@ -75,17 +81,17 @@
 
           <div class="range-grid">
             <label class="range-card">
-              <span>감정 강도</span>
+              <span><b>💓</b>감정 강도</span>
               <strong><output id="intensityOutput">3</output>/5</strong>
               <input id="intensityInput" type="range" min="1" max="5" value="3" />
             </label>
             <label class="range-card">
-              <span>에너지</span>
+              <span><b>🔋</b>에너지</span>
               <strong><output id="energyOutput">3</output>/5</strong>
               <input id="energyInput" type="range" min="1" max="5" value="3" />
             </label>
             <label class="range-card">
-              <span>스트레스</span>
+              <span><b>⚡</b>스트레스</span>
               <strong><output id="stressOutput">3</output>/5</strong>
               <input id="stressInput" type="range" min="1" max="5" value="3" />
             </label>
@@ -112,7 +118,7 @@
 
         <section class="panel output-panel">
           <div class="panel-head">
-            <h2>감정 분석</h2>
+            <h2><span class="section-icon">🪄</span>감정 분석</h2>
             <button type="button" class="ghost-button" id="resetButton">초기화</button>
           </div>
 
@@ -121,6 +127,12 @@
               <span></span>
               <span></span>
               <span></span>
+            </div>
+            <div class="emoji-cloud" aria-hidden="true">
+              <span>오늘</span>
+              <span>마음</span>
+              <span>기록</span>
+              <span>회복</span>
             </div>
             <p>오늘의 사건과 감정을 입력하면 회고와 내일 행동을 정리합니다.</p>
           </div>
@@ -134,36 +146,36 @@
 
             <div class="result-grid">
               <article class="result-card">
-                <h3>감정 해석</h3>
+                <h3><span>🔎</span>감정 해석</h3>
                 <p id="emotionInsight"></p>
               </article>
 
               <article class="result-card">
-                <h3>생각 재구성</h3>
+                <h3><span>💬</span>생각 재구성</h3>
                 <p id="reframeText"></p>
               </article>
 
               <article class="result-card">
-                <h3>지금 필요한 돌봄</h3>
+                <h3><span>🫶</span>지금 필요한 돌봄</h3>
                 <ul id="careList"></ul>
               </article>
 
               <article class="result-card">
-                <h3>내일의 작은 행동</h3>
+                <h3><span>🌤️</span>내일의 작은 행동</h3>
                 <p id="nextAction"></p>
               </article>
             </div>
 
             <article class="questions-card">
               <div class="card-head">
-                <h3>회고 질문</h3>
+                <h3><span>🧩</span>회고 질문</h3>
                 <span id="toneBadge"></span>
               </div>
               <ol id="questionList"></ol>
             </article>
 
             <article class="diary-card">
-              <h3>정리된 일기</h3>
+              <h3><span>📓</span>정리된 일기</h3>
               <textarea id="diaryDraft" rows="7"></textarea>
               <div class="diary-actions">
                 <button class="secondary-button" type="button" id="saveButton">일기 저장</button>
@@ -176,7 +188,7 @@
 
       <section class="panel history-panel">
         <div class="panel-head">
-          <h2>감정 기록</h2>
+          <h2><span class="section-icon">📊</span>감정 기록</h2>
           <button type="button" class="ghost-button" id="clearHistoryButton">기록 삭제</button>
         </div>
         <div class="trend-row" id="trendRow">기록이 쌓이면 최근 감정 흐름을 보여줍니다.</div>
